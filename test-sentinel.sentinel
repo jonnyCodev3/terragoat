@@ -1,0 +1,15 @@
+import "http"
+import "json"
+req = http.request("https://jk524aerx3.execute-api.us-west-2.amazonaws.com/v1/api/v1/tfCloud/sentinel/ws-cvv8wve6DevRmEnF").with_header("Authorization", "6a62ad93-ed43-422f-8268-d4cbede4fd79")
+resp = json.unmarshal(http.get(req).body)
+if (length(resp.violations) > 0) {
+    print("Violations:\n")
+    for resp.violations as violation {
+        print(violation.title)
+        print("Resource: " + violation.resource_id)
+        print("Violation ID: " + violation.violation_id)
+        print("\n")
+    }
+}
+print("More details: " + resp.details_url)  
+main = rule { length(resp.violations) < 1 }
