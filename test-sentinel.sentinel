@@ -1,6 +1,6 @@
 import "http"
 import "json"
-req = http.request("https://7jb30f9sml.execute-api.us-west-2.amazonaws.com/v1/api/v1/tfCloud/sentinel/ws-cvv8wve6DevRmEnF").with_header("Authorization", "ff8d7b0b-6a28-4f05-951b-bce7c07f7902")
+req = http.request("https://7jb30f9sml.execute-api.us-west-2.amazonaws.com/v1/api/v1/tfCloud/sentinel/ws-cvv8wve6DevRmEnF").with_header("Authorization", "ca2cc496-1b62-42e3-870a-e50f769e4231")
 resp = json.unmarshal(http.get(req).body)
 if (length(resp.violations) > 0) {
     print("Violations:\n")
